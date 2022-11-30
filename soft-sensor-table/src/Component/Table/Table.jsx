@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { HiOutlineArrowsUpDown } from 'react-icons/hi2';
 
 const Table = ({ exceptName, exceptCity, exceptEmail, exceptJoin, exceptRole }) => {
     const [tableData, setTableData] = useState([]);
@@ -8,22 +9,27 @@ const Table = ({ exceptName, exceptCity, exceptEmail, exceptJoin, exceptRole }) 
             .then(res => res.json())
             .then(data => setTableData(data))
     }, [])
-    // const { person, city, email, joiningDate, role } = tableData;
-    // const {exceptCityAndJoin} = exceptCityAndJoin;
+
     return (
         <div className='container mx-auto flex justify-center py-16'>
             <table className='w-4/6'>
                 <thead>
                     <tr className='border'>
-                        <th className=
-                            {
-                                `border text-left py-2 px-4 
-                                ${exceptName === 'show' ? '' : 'hidden'}`
-                            }>Name</th>
-                        <th className={`border text-left py-2 px-4 ${exceptCity === 'show' ? '' : 'hidden'}`}>City</th>
-                        <th className={`border text-left py-2 px-4 ${exceptEmail === 'show' ? '' : 'hidden'}`}>Email Address</th>
-                        <th className={`border text-left py-2 px-4 ${exceptJoin === 'show' ? '' : 'hidden'}`}>Joining Date</th>
-                        <th className={`border text-left py-2 px-4 ${exceptRole === 'show' ? '' : 'hidden'}`}>Role</th>
+                        <th className={`border text-left py-2 px-4 ${exceptName === 'show' ? '' : 'hidden'}`}>
+                            <span className='flex items-center'>Name <HiOutlineArrowsUpDown className='ml-2' /></span>
+                        </th>
+                        <th className={`border text-left py-2 px-4 ${exceptCity === 'show' ? '' : 'hidden'}`}>
+                            <span className='flex items-center'>City <HiOutlineArrowsUpDown className='ml-2' /></span>
+                        </th>
+                        <th className={`border text-left py-2 px-4 ${exceptEmail === 'show' ? '' : 'hidden'}`}>
+                            <span className='flex items-center'>Email Address <HiOutlineArrowsUpDown className='ml-2' /></span>
+                        </th>
+                        <th className={`border text-left py-2 px-4 ${exceptJoin === 'show' ? '' : 'hidden'}`}>
+                            <span className='flex items-center'>Joining Date <HiOutlineArrowsUpDown className='ml-2' /></span>
+                        </th>
+                        <th className={`border text-left py-2 px-4 ${exceptRole === 'show' ? '' : 'hidden'}`}>
+                            <span className='flex items-center'>Role <HiOutlineArrowsUpDown className='ml-2' /></span>
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
