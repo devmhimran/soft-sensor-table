@@ -9,25 +9,23 @@ const Table = ({ exceptName, exceptCity, exceptEmail, exceptJoin, exceptRole }) 
         fetch('tableTestData.json')
             .then(res => res.json())
             .then(data => setTableData(data))
-    }, [orderData])
+    }, [])
 
     const handleSort = (col) => {
         if (orderData === "ASC") {
             const sortedData = [...tableData].sort((a, b) =>
-                a[col] > b[col] ? 1 : -1
+            a[col]?.toLowerCase() > b[col]?.toLowerCase() ? 1 : -1
             )
             setTableData(sortedData)
             setOrderData("DSC")
         }
-        if (orderData === "ASC") {
+        if (orderData === "DSC") {
             const sortedData = [...tableData].sort((a, b) =>
-                a[col] < b[col] ? 1 : -1
+                a[col]?.toLowerCase() < b[col]?.toLowerCase() ? 1 : -1
             )
             setTableData(sortedData)
             setOrderData("ASC")
         }
-        console.log(col)
-
     }
 
     return (
